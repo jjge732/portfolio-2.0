@@ -1,12 +1,14 @@
 
 html {
-    opacity: 1;
+    height: 100vh;
 }
 
 body {
-    background-image: url(../public/skyline-color.jpeg);
+    /* Photo by Azim Islam from Pexels */
+    /* https://www.pexels.com/photo/bokeh-of-lights-photography-1210276/ */
+    background-image: url(../public/bokeh-of-lights-photography-1210276.jpg);
+    background-position: center;
+    background-size: cover;
+    height: 100vh;
 }
 
-.container {
-    opacity: 1;
-}

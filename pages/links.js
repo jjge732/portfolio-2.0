@@ -1,25 +1,26 @@
 import Head from 'next/head'
 import Link from 'next/link'
+import utilStyles from '../styles/links-utils.module.css'
 
-export default function Home() {
+export default function Links() {
   return (
-    <>
+    <div className={utilStyles.container}>
       <Head>
         <title>John Eastwood</title>
         <link rel="icon" href="/favicon.ico" />
-        <script src="https://kit.fontawesome.com/097c3e5b4d.js" crossorigin="anonymous"></script>
       </Head>
 
       <main className="content">
         <h1 className="title">
-          Welcome
+          Thanks for visiting!
         </h1>
+        <div className="info">
+            This site will be updated regularly, check back soon!
+        </div>
         <div className="grid">
-          <Link href="/links">
-            <a className="card">
-            &#8250;
+            <a className="card" href="https://github.com/jjge732">
+              <img src="/github-icon.png" height="80px"/>
             </a>
-          </Link>
         </div>
       </main>
 
@@ -40,7 +41,6 @@ export default function Home() {
           flex-direction: column;
           justify-content: center;
           align-items: center;
-          color: #CEF2ED;
         }
 
         a {
@@ -51,25 +51,23 @@ export default function Home() {
         .title {
             opacity: .85;
             font-size: 45px;
+            text-shadow: 1px 1px 2px #40140D;
             text-decoration: none;
         }
 
-        .title {
-          margin: 0;
-          text-shadow: 1px 1px 20px #7A4B63;
-          text-shadow: 1px 1px 12px #69787A;
-          line-height: 1.15;
-          font-size: 4rem;
+        .title, .info{
+            margin: 0;
+            color: #C97BA3;
+            line-height: 1.15;
+            font-size: 4rem;
+            text-align: center;
         }
 
-        .title,
-        .description {
-          text-align: center;
-        }
-
-        .description {
+        .info {
           line-height: 1.5;
           font-size: 1.5rem;
+          width: 45%;
+          margin-top: 3rem;
         }
 
         code {
@@ -87,7 +85,6 @@ export default function Home() {
           justify-content: center;
           flex-wrap: wrap;
           max-width: 800px;
-          margin-top: 3rem;
         }
 
         .card {
@@ -100,15 +97,15 @@ export default function Home() {
           transition: color 0.15s ease, border-color 0.15s ease;
         }
 
-        a.card {
+        .card i {
           opacity: .9;
-          // color: #A59D9D;
-          font-size: 75px;
+          color: #A59D9D;
+          font-size: 45px;
         }
 
-        a.card:hover,
-        a.card:focus,
-        a.card:active {
+        .card i:hover,
+        .card i:focus,
+        .card i:active {
           color: #69787A;
           text-shadow: 2px 2px 6px #7A4B63;
         }
@@ -117,10 +114,6 @@ export default function Home() {
           margin: 0;
           font-size: 1.25rem;
           line-height: 1.5;
-        }
-
-        .logo {
-          height: 1em;
         }
 
         @media (max-width: 600px) {
@@ -145,6 +138,6 @@ export default function Home() {
           box-sizing: border-box;
         }
       `}</style>
-    </>
+    </div>
   )
 }
