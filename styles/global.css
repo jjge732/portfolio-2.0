@@ -6,9 +6,12 @@ html {
 body {
     /* Photo by Azim Islam from Pexels */
     /* https://www.pexels.com/photo/bokeh-of-lights-photography-1210276/ */
-    background-image: url(../public/bokeh-of-lights-photography-1210276.jpg);
+    background-image: url("../public/background-image.jpg");
     background-position: center;
     background-size: cover;
     height: 100vh;
 }
 
+i.fas {
+    width: 10px;
+}

@@ -1,13 +1,19 @@
 import Head from 'next/head'
 import Link from 'next/link'
 
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { library } from '@fortawesome/fontawesome-svg-core'
+import { faChevronDown } from '@fortawesome/free-solid-svg-icons'
+library.add(faChevronDown)
+
+
 export default function Home() {
   return (
-    <>
+    <div className="container">
       <Head>
         <title>John Eastwood</title>
         <link rel="icon" href="/favicon.ico" />
-        <script src="https://kit.fontawesome.com/097c3e5b4d.js" crossorigin="anonymous"></script>
+        <script src="https://kit.fontawesome.com/097c3e5b4d.js" crossOrigin="anonymous"></script>
       </Head>
 
       <main className="content">
@@ -17,7 +23,7 @@ export default function Home() {
         <div className="grid">
           <Link href="/links">
             <a className="card">
-            &#8250;
+              <FontAwesomeIcon icon={faChevronDown}></FontAwesomeIcon>
             </a>
           </Link>
         </div>
@@ -56,7 +62,6 @@ export default function Home() {
 
         .title {
           margin: 0;
-          text-shadow: 1px 1px 20px #7A4B63;
           text-shadow: 1px 1px 12px #69787A;
           line-height: 1.15;
           font-size: 4rem;
@@ -102,7 +107,6 @@ export default function Home() {
 
         a.card {
           opacity: .9;
-          // color: #A59D9D;
           font-size: 75px;
         }
 
@@ -145,6 +149,6 @@ export default function Home() {
           box-sizing: border-box;
         }
       `}</style>
-    </>
+    </div>
   )
 }

@@ -1,10 +1,9 @@
 import Head from 'next/head'
 import Link from 'next/link'
-import utilStyles from '../styles/links-utils.module.css'
 
 export default function Links() {
   return (
-    <div className={utilStyles.container}>
+    <div className="container">
       <Head>
         <title>John Eastwood</title>
         <link rel="icon" href="/favicon.ico" />
@@ -51,13 +50,12 @@ export default function Links() {
         .title {
             opacity: .85;
             font-size: 45px;
-            text-shadow: 1px 1px 2px #40140D;
+            text-shadow: 1px 2px 1px #40140D, -1px -2px 1px #40140D, -1px 2px 1px #40140D, 1px -2px 1px #40140D;
             text-decoration: none;
         }
 
         .title, .info{
             margin: 0;
-            color: #C97BA3;
             line-height: 1.15;
             font-size: 4rem;
             text-align: center;
@@ -97,23 +95,27 @@ export default function Links() {
           transition: color 0.15s ease, border-color 0.15s ease;
         }
 
-        .card i {
-          opacity: .9;
-          color: #A59D9D;
-          font-size: 45px;
-        }
-
-        .card i:hover,
-        .card i:focus,
-        .card i:active {
-          color: #69787A;
-          text-shadow: 2px 2px 6px #7A4B63;
-        }
-
         .card p {
           margin: 0;
           font-size: 1.25rem;
           line-height: 1.5;
+        }
+
+        .content {
+          color: #CEF2ED;
+          text-shadow: 2px 2px 2px #69787A, -2px -2px 2px #69787A, -2px 2px 2px #69787A, 2px -2px 2px #69787A;
+        }
+
+        .container {
+          position: relative;
+          // background-image: url(/public/webb.png);
+          height: 100vh;
+          animation: moveIn 5s;
+        }
+      
+        @keyframes moveIn {
+            from {bottom: -100vh;}
+            to {bottom: 0;}
         }
 
         @media (max-width: 600px) {
@@ -122,6 +124,7 @@ export default function Links() {
             flex-direction: column;
           }
         }
+      
       `}</style>
 
       <style jsx global>{`

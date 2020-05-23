@@ -1,0 +1,17 @@
+service: jjge-portfolio
+
+provider:
+  name: aws
+  runtime: nodejs12.x
+  
+plugins:
+  - serverless-nextjs-plugin
+
+package:
+  exclude:
+    - ./**
+
+custom:
+  serverless-nextjs:
+    assetsBucketName: "jjge-portfolio"
+    cloudFront: true

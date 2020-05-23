@@ -1,13 +1,13 @@
 .container {
     background-image: url(../public/webb.png);
-    transition: opacity 2s;
+    /* transition: opacity 2s; */
     height: 100vh;
-    animation: fadeIn 1s;
+    animation: moveIn 10s;
 }
 
-@keyframes fadeIn {
-    from {opacity: 0;}
-    to {opacity: 1;}
+@keyframes moveIn {
+    from {left: 0;}
+    to {left: 1vw;}
 }
 
 .content {
