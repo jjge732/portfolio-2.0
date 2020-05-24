@@ -15,7 +15,7 @@ export default class Container extends Component {
             type: props.type
         }
     }
-    
+
     switchContainer = name => {
         setTimeout(() => {this.setState({
             isTransitioning: false,
@@ -28,14 +28,12 @@ export default class Container extends Component {
         return(
             <div className={cn({
                 [styles.container]: true,
-                [styles.links]: this.state.type.includes('links'),
-                [styles.transitioning]: this.state.isTransitioning
+                [styles.transitioningIn]: !this.state.type.includes('landing'),
+                [styles.transitioningOut]: this.state.isTransitioning,
             })}>
                 <main className="content">
                     <Heading type={this.state.type}/>
-                        {this.state.type.includes('links') ?
-                            <Info/> : <></> 
-                        }
+                    <Info type={this.state.type}/>
                     <Grid type={this.state.type} handleClick={this.switchContainer}/>
                 </main>
                 <style jsx global>{`

@@ -7,24 +7,18 @@ import styles from '../styles/heading-utils.module.css'
 export default class Heading extends Component {
     constructor (props) {
         super(props);
-
         this.props = props
-
+        this.state = {type: props.type}
         this.textMap = {
+            contact: 'Let\'s collaborate!',
             landing: 'Welcome',
             links: 'Thanks for coming!'
         }
-
-        this.state = {type: props.type}
     }
 
     render() {
         return (
-            <h1 className={cn({
-                'title': true,
-                [styles.landing]: this.props.type.includes('landing'),
-                [styles.links]: this.props.type.includes('links'),
-            })}>
+            <h1 className={styles.heading}>
                 {this.textMap[this.props.type]}
             </h1>
         )

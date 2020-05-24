@@ -1,4 +1,4 @@
-.landing, .links {
+.heading {
     opacity: .85;
     font-size: 45px;
     text-decoration: none;
@@ -6,21 +6,5 @@
     line-height: 1.15;
     font-size: 4rem;
     text-align: center;
-}
-
-.landing {
     text-shadow: 1px 1px 1px #40140D, -1px -1px 1px #40140D, -1px 1px 1px #40140D, 1px -1px 1px #40140D;
-}
-
-.links {
-    text-shadow: 1px 1px 1px #40140D, -1px -1px 1px #40140D, -1px 1px 1px #40140D, 1px -1px 1px #40140D;
-}
-
-.unmounting {
-    animation: moveOut 5s;
-}
-
-@keyframes moveOut {
-    from {left: 0;}
-    to {left: 1vw;}
 }

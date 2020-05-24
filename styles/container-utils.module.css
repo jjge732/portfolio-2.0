@@ -9,11 +9,11 @@
     height: 100vh;
 }
 
-.links {
+.transitioningIn {
     animation: moveIn 1s;
 }
 
-.transitioning {
+.transitioningOut {
     animation: moveOut 1s;
 }
 
