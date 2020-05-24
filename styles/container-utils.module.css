@@ -10,11 +10,11 @@
 }
 
 .links {
-    animation: moveIn 1.5s;
+    animation: moveIn 1s;
 }
 
 .transitioning {
-    animation: moveOut 1.4s;
+    animation: moveOut 1s;
 }
 
 @keyframes moveIn {

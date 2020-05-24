@@ -9,10 +9,6 @@ export default class Info extends Component {
     }
 
     render() {
-        return (
-            <div className={styles.info}>
-                This site will be updated regularly, check back soon!
-            </div>
-        )
+        return <div className={styles.info}>This site will be updated regularly, check back soon!</div>
     }
 }

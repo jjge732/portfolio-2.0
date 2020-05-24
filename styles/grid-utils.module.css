@@ -15,6 +15,11 @@
     font-size: 75px;
 }
 
+.iconLinks {
+    justify-self: auto;
+    margin: 0 10px;
+}
+
 .arrowIcon:hover,
 .arrowIcon:focus,
 .arrowIcon:active {

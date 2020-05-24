@@ -10,6 +10,7 @@ body {
     background-position: center;
     background-size: cover;
     height: 100vh;
+    text-align: center;
 }
 
 i.fas {
@@ -25,6 +26,16 @@ button {
     /* show a hand cursor on hover; some argue that we
     should keep the default arrow cursor for buttons */
     cursor: pointer;
+}
+
+main {
+    padding: 5rem 0;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: #CEF2ED;
 }
 
 @media (max-width: 600px) {

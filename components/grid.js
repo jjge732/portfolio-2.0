@@ -1,13 +1,14 @@
 import { Component } from "react"
+import Link from 'next/link'
 
-import cn from 'classnames'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { library } from '@fortawesome/fontawesome-svg-core'
-import { faChevronDown } from '@fortawesome/free-solid-svg-icons'
+import { faChevronDown, faEnvelope } from '@fortawesome/free-solid-svg-icons'
+import { fab, faGithub } from '@fortawesome/free-brands-svg-icons'
 
 import styles from '../styles/grid-utils.module.css'
 
-library.add(faChevronDown)
+library.add(faChevronDown, faEnvelope, faGithub, fab)
 
 export default class Grid extends Component {
     constructor(props) {
@@ -25,9 +26,16 @@ export default class Grid extends Component {
                         <FontAwesomeIcon icon={faChevronDown}></FontAwesomeIcon>
                     </a>
                     :
-                    <a className={styles.iconLinks}  href="https://github.com/jjge732">
-                        <img src="/github-icon.png" height="80px"/>
-                    </a>
+                    <>
+                        <a className={styles.iconLinks} href="https://github.com/jjge732">
+                            <FontAwesomeIcon icon={faGithub}color='#CEF2ED' size="3x"></FontAwesomeIcon>
+                        </a>
+                        <Link href="/contact">
+                            <a className={styles.iconLinks}>
+                                <FontAwesomeIcon icon={faEnvelope} color="#CEF2ED" size="3x"></FontAwesomeIcon>
+                            </a>
+                        </Link>
+                    </>
                 }
             </div>
         )
