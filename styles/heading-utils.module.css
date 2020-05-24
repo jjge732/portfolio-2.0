@@ -1,0 +1,21 @@
+.landing {
+    opacity: .85;
+    font-size: 45px;
+    text-decoration: none;
+    margin: 0;
+    text-shadow: 1px 1px 12px #69787A;
+    line-height: 1.15;
+    font-size: 4rem;
+    text-align: center;
+}
+
+.links {
+    opacity: .85;
+    font-size: 45px;
+    text-shadow: 1px 2px 1px #40140D, -1px -2px 1px #40140D, -1px 2px 1px #40140D, 1px -2px 1px #40140D;
+    text-decoration: none;
+    margin: 0;
+    line-height: 1.15;
+    font-size: 4rem;
+    text-align: center;
+}

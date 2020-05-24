@@ -1,18 +1,12 @@
-import Head from 'next/head'
 import Link from 'next/link'
+import Heading from '../components/heading'
+
 
 export default function Links() {
   return (
     <div className="container">
-      <Head>
-        <title>John Eastwood</title>
-        <link rel="icon" href="/favicon.ico" />
-      </Head>
-
       <main className="content">
-        <h1 className="title">
-          Thanks for visiting!
-        </h1>
+        <Heading text="Thanks for visiting!" type="links"/>
         <div className="info">
             This site will be updated regularly, check back soon!
         </div>
@@ -47,14 +41,7 @@ export default function Links() {
           text-decoration: none;
         }
 
-        .title {
-            opacity: .85;
-            font-size: 45px;
-            text-shadow: 1px 2px 1px #40140D, -1px -2px 1px #40140D, -1px 2px 1px #40140D, 1px -2px 1px #40140D;
-            text-decoration: none;
-        }
-
-        .title, .info{
+        .info{
             margin: 0;
             line-height: 1.15;
             font-size: 4rem;
