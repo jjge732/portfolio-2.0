@@ -33,7 +33,7 @@ export default class Container extends Component {
             })}>
                 <main className="content">
                     <Heading type={this.state.type}/>
-                        { this.state.type.includes('links') ?
+                        {this.state.type.includes('links') ?
                             <Info/> : <></> 
                         }
                     <Grid type={this.state.type} arrowClick={this.onArrowClick}/>

@@ -1,14 +1,5 @@
-import { Component } from 'react'
-
 import Container from '../components/container'
 
-export default class Home extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {}
-  }
-
-  render() {
-    return <Container headingText="Welcome" type="landing"/>
-  }
+export default function Home() {
+  return <Container type="landing"/>
 }

@@ -1,5 +1,4 @@
 import { Component } from "react"
-import Link from 'next/link'
 
 import cn from 'classnames'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
@@ -22,18 +21,11 @@ export default class Grid extends Component {
         return (
             <div className={styles.grid}>
                 {this.props.type.includes('landing') ?
-                    // <Link href="/links">
-                    //     <a className={styles.arrowIcon}>
-                    //         <FontAwesomeIcon icon={faChevronDown}></FontAwesomeIcon>
-                    //     </a>
-                    // </Link>
-                    <button onClick={this.handleClick}>
-                        <a className={styles.arrowIcon}>
-                            <FontAwesomeIcon icon={faChevronDown}></FontAwesomeIcon>
-                        </a>
-                    </button>
+                    <a className={styles.arrowIcon} onClick={this.handleClick}>
+                        <FontAwesomeIcon icon={faChevronDown}></FontAwesomeIcon>
+                    </a>
                     :
-                    <a className={"card" + styles.iconLinks}  href="https://github.com/jjge732">
+                    <a className={styles.iconLinks}  href="https://github.com/jjge732">
                         <img src="/github-icon.png" height="80px"/>
                     </a>
                 }
