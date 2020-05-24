@@ -17,9 +17,6 @@ export default class Heading extends Component {
 
         this.state = {type: props.type}
     }
-    // componentDidUpdate= () => {
-    //     this.setState({type: this.state.type + " unmounting"})
-    // } 
 
     render() {
         return (
@@ -27,7 +24,6 @@ export default class Heading extends Component {
                 'title': true,
                 [styles.landing]: this.props.type.includes('landing'),
                 [styles.links]: this.props.type.includes('links'),
-                [styles.unmounting]: this.props.type.includes('unmounting')
             })}>
                 {this.textMap[this.props.type]}
             </h1>
