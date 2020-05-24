@@ -1,7 +1,5 @@
 import { Component } from 'react'
 
-import cn from 'classnames'
-
 import styles from '../styles/heading-utils.module.css'
 
 export default class Heading extends Component {
@@ -10,11 +8,10 @@ export default class Heading extends Component {
         this.props = props
         this.state = {type: props.type}
         this.textMap = {
-            contact: 'Thanks for coming!',
+            contact: 'Thanks for visiting!',
             landing: 'Welcome',
-            links: 'More coming soon!',
+            links: 'More content on the way!',
             recentWork: 'What I\'ve been up to lately:'
-
         }
     }
 
