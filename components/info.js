@@ -5,8 +5,7 @@ import styles from '../styles/info-utils.module.css'
 export default class Info extends Component {
     constructor(props) {
         super(props);
-        this.state = {}
-        this.state.type = props.type
+        this.state = {type: props.type}
     }
 
     render() {

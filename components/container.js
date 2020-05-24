@@ -9,22 +9,34 @@ import styles from '../styles/container-utils.module.css'
 export default class Container extends Component {
     constructor(props) {
         super(props);
-        this.state = {}
-        this.state.headingText = props.headingText
-        this.state.type = props.type
+
+        this.state = {
+            isTransitioning: false,
+            type: props.type
+        }
     }
+
+    onArrowClick = () => {
+        setTimeout(() => {this.setState({
+            isTransitioning: false,
+            type: 'links'
+        })}, 1300);
+        this.setState({isTransitioning: true})
+    }
+
     render() {
         return(
             <div className={cn({
                 [styles.container]: true,
                 [styles.links]: this.state.type.includes('links'),
+                [styles.transitioning]: this.state.isTransitioning
             })}>
                 <main className="content">
-                    <Heading text={this.state.headingText} type={this.state.type}/>
+                    <Heading type={this.state.type}/>
                         { this.state.type.includes('links') ?
                             <Info/> : <></> 
                         }
-                    <Grid type={this.state.type}/>
+                    <Grid type={this.state.type} arrowClick={this.onArrowClick}/>
                 </main>
                 <style jsx>{`
                     main {

@@ -13,19 +13,25 @@ library.add(faChevronDown)
 export default class Grid extends Component {
     constructor(props) {
         super(props);
-        this.state = {}
-        this.state.type = props.type
+        this.props = props
+        this.state = {type: props.type}
+        this.handleClick = props.arrowClick
     }
 
     render() {
         return (
             <div className={styles.grid}>
-                { this.state.type.includes('landing') ?
-                    <Link href="/links">
+                {this.props.type.includes('landing') ?
+                    // <Link href="/links">
+                    //     <a className={styles.arrowIcon}>
+                    //         <FontAwesomeIcon icon={faChevronDown}></FontAwesomeIcon>
+                    //     </a>
+                    // </Link>
+                    <button onClick={this.handleClick}>
                         <a className={styles.arrowIcon}>
                             <FontAwesomeIcon icon={faChevronDown}></FontAwesomeIcon>
                         </a>
-                    </Link>
+                    </button>
                     :
                     <a className={"card" + styles.iconLinks}  href="https://github.com/jjge732">
                         <img src="/github-icon.png" height="80px"/>

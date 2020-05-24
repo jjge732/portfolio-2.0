@@ -10,10 +10,19 @@
 }
 
 .links {
-    animation: moveIn 5s;
+    animation: moveIn 1.5s;
+}
+
+.transitioning {
+    animation: moveOut 1.4s;
 }
 
 @keyframes moveIn {
     from {bottom: -100vh;}
     to {bottom: 0;}
+}
+
+@keyframes moveOut {
+    from {top: 0vh;}
+    to {top: -100vh;}
 }

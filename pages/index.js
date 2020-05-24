@@ -9,8 +9,6 @@ export default class Home extends Component {
   }
 
   render() {
-    return (
-      <Container headingText="Welcome" type="landing"/>
-    )
+    return <Container headingText="Welcome" type="landing"/>
   }
 }
