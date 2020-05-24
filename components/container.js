@@ -15,11 +15,11 @@ export default class Container extends Component {
             type: props.type
         }
     }
-
-    onArrowClick = () => {
+    
+    switchContainer = name => {
         setTimeout(() => {this.setState({
             isTransitioning: false,
-            type: 'links'
+            type: name
         })}, 800);
         this.setState({isTransitioning: true})
     }
@@ -36,7 +36,7 @@ export default class Container extends Component {
                         {this.state.type.includes('links') ?
                             <Info/> : <></> 
                         }
-                    <Grid type={this.state.type} arrowClick={this.onArrowClick}/>
+                    <Grid type={this.state.type} handleClick={this.switchContainer}/>
                 </main>
                 <style jsx global>{`
                 html,

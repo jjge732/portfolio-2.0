@@ -15,24 +15,24 @@ export default class Grid extends Component {
         super(props);
         this.props = props
         this.state = {type: props.type}
-        this.handleClick = props.arrowClick
+        this.handleClick = props.handleClick
     }
 
     render() {
         return (
             <div className={styles.grid}>
                 {this.props.type.includes('landing') ?
-                    <a className={styles.arrowIcon} onClick={this.handleClick}>
+                    <a className={styles.arrowIcon} onClick={this.handleClick.bind(this, "links")}>
                         <FontAwesomeIcon icon={faChevronDown}></FontAwesomeIcon>
                     </a>
                     :
                     <>
                         <a className={styles.iconLinks} href="https://github.com/jjge732">
-                            <FontAwesomeIcon icon={faGithub}color='#CEF2ED' size="3x"></FontAwesomeIcon>
+                            <FontAwesomeIcon icon={faGithub}color='#CEF2ED' size="4x"></FontAwesomeIcon>
                         </a>
                         <Link href="/contact">
                             <a className={styles.iconLinks}>
-                                <FontAwesomeIcon icon={faEnvelope} color="#CEF2ED" size="3x"></FontAwesomeIcon>
+                                <FontAwesomeIcon icon={faEnvelope} color="#CEF2ED" size="4x"></FontAwesomeIcon>
                             </a>
                         </Link>
                     </>
