@@ -1,21 +1,23 @@
-import Link from 'next/link'
-import Heading from '../components/heading'
+import Container from '../components/container'
 
 
 export default function Links() {
   return (
-    <div className="container">
-      <main className="content">
-        <Heading text="Thanks for visiting!" type="links"/>
-        <div className="info">
-            This site will be updated regularly, check back soon!
-        </div>
-        <div className="grid">
-            <a className="card" href="https://github.com/jjge732">
-              <img src="/github-icon.png" height="80px"/>
-            </a>
-        </div>
-      </main>
+    <div>
+      <Container headingText="Thanks for visiting!" type="links"/>
+
+    {/* // <div className="container">
+    //   <main className="content">
+    //     <Heading text="Thanks for visiting!" type="links"/>
+    //     <div className="info">
+    //         This site will be updated regularly, check back soon!
+    //     </div>
+    //     <div className="grid">
+    //         <a className="card" href="https://github.com/jjge732">
+    //           <img src="/github-icon.png" height="80px"/>
+    //         </a>
+    //     </div>
+    //   </main> */}
 
       <style jsx>{`
         .container {
@@ -36,25 +38,6 @@ export default function Links() {
           align-items: center;
         }
 
-        a {
-          color: inherit;
-          text-decoration: none;
-        }
-
-        .info{
-            margin: 0;
-            line-height: 1.15;
-            font-size: 4rem;
-            text-align: center;
-        }
-
-        .info {
-          line-height: 1.5;
-          font-size: 1.5rem;
-          width: 45%;
-          margin-top: 3rem;
-        }
-
         code {
           padding: 0.75rem;
           font-size: 1.1rem;
@@ -62,14 +45,6 @@ export default function Links() {
           color: #A59D9D;
           font-family: Menlo, Monaco, Lucida Console, Liberation Mono,
             DejaVu Sans Mono, Bitstream Vera Sans Mono, Courier New, monospace;
-        }
-
-        .grid {
-          display: flex;
-          align-items: center;
-          justify-content: center;
-          flex-wrap: wrap;
-          max-width: 800px;
         }
 
         .card {
@@ -88,14 +63,8 @@ export default function Links() {
           line-height: 1.5;
         }
 
-        .content {
-          color: #CEF2ED;
-          text-shadow: 2px 2px 2px #69787A, -2px -2px 2px #69787A, -2px 2px 2px #69787A, 2px -2px 2px #69787A;
-        }
-
         .container {
           position: relative;
-          // background-image: url(/public/webb.png);
           height: 100vh;
           animation: moveIn 5s;
         }

@@ -1,0 +1,19 @@
+.container {
+    min-height: 100vh;
+    padding: 0 0.5rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    height: 100vh;
+}
+
+.links {
+    animation: moveIn 5s;
+}
+
+@keyframes moveIn {
+    from {bottom: -100vh;}
+    to {bottom: 0;}
+}
