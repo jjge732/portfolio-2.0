@@ -10,9 +10,11 @@ export default class Heading extends Component {
         this.props = props
         this.state = {type: props.type}
         this.textMap = {
-            contact: 'Let\'s collaborate!',
+            contact: 'Thanks for coming!',
             landing: 'Welcome',
-            links: 'Thanks for coming!'
+            links: 'More coming soon!',
+            recentWork: 'What I\'ve been up to lately:'
+
         }
     }
 

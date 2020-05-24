@@ -14,30 +14,34 @@ export default class Grid extends Component {
     constructor(props) {
         super(props);
         this.props = props
-        this.state = {type: props.type}
         this.handleClick = props.handleClick
+        this.nextPageMap = {
+            landing: "recentWork",
+            recentWork: "links",
+            links: "contact"
+        }
         this.elementsMap = {
-            landing: 
-                <a className={styles.arrowIcon} onClick={this.handleClick.bind(this, "links")}>
-                    <FontAwesomeIcon icon={faChevronDown}></FontAwesomeIcon>
-                </a>,
             links:
-                <>
-                    <a className={styles.iconLinks} href="https://github.com/jjge732">
-                        <FontAwesomeIcon icon={faGithub}color='#CEF2ED' size="4x"></FontAwesomeIcon>
-                    </a>
-                    <a className={styles.iconLinks} onClick={this.handleClick.bind(this, "contact")}>
-                        <FontAwesomeIcon icon={faInfoCircle} color="#CEF2ED" size="4x"></FontAwesomeIcon>
-                    </a>
-                </>
+                <a className={styles.iconLinks} href="https://github.com/jjge732">
+                    <FontAwesomeIcon icon={faGithub}color='#CEF2ED' size="4x"></FontAwesomeIcon>
+                </a>
         }
     }
 
     render() {
         return (
-            <div className={styles.grid}>
-                {this.elementsMap[this.props.type]}
-            </div>
+            <>
+                <div className={styles.grid}>
+                    {this.elementsMap[this.props.type]}
+                </div>
+                {
+                    this.nextPageMap[this.props.type] ? 
+                        <a className={styles.arrowIcon} onClick={this.handleClick.bind(this, this.nextPageMap[this.props.type])}>
+                            <FontAwesomeIcon icon={faChevronDown}></FontAwesomeIcon>
+                        </a>
+                    : null
+                }
+            </>
         )
     }
 }

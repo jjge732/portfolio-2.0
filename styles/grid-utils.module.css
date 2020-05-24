@@ -5,12 +5,11 @@
     justify-content: center;
     flex-wrap: wrap;
     max-width: 800px;
-    margin-top: 3rem;
+    margin-top: 1.5rem;
 }
 
 .arrowIcon {
     color: inherit;
-    text-decoration: none;
     opacity: .9;
     font-size: 75px;
 }
@@ -18,6 +17,7 @@
 .iconLinks {
     justify-self: auto;
     margin: 0 10px;
+    margin-bottom: 1rem;
 }
 
 .arrowIcon:hover,
