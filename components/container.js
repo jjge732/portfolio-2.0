@@ -4,6 +4,7 @@ import cn from 'classnames'
 
 import BackArrow from '../components/backArrow'
 import Grid from '../components/grid'
+import ForwardArrow from '../components/forwardArrow'
 import Heading from '../components/heading'
 import Info from '../components/info'
 import styles from '../styles/container-utils.module.css'
@@ -35,7 +36,7 @@ export default class Container extends Component {
         let isBack = this.state.isBack;
         let initialLoad = this.state.initialLoad;
         return(
-            <div className={cn({
+            <main className={cn({
                 [styles.container]: true,
                 [styles.transitioningIn]: !initialLoad && !isBack,
                 [styles.transitioningOut]: this.state.isTransitioning && !isBack,
@@ -43,13 +44,12 @@ export default class Container extends Component {
                 [styles.reverseTransitionOut]: this.state.isTransitioning && isBack
 
             })}>
-                <main className="content">
-                    <BackArrow type={type} handleClick={this.switchContainer}/>
-                    <Heading type={type}/>
-                    <Info type={type}/>
-                    <Grid type={type} handleClick={this.switchContainer}/>
-                </main>
-            </div>
+                <BackArrow type={type} handleClick={this.switchContainer}/>
+                <Heading type={type}/>
+                <Info type={type}/>
+                <Grid type={type} handleClick={this.switchContainer}/>
+                <ForwardArrow type={type} handleClick={this.switchContainer}/>
+            </main>
         )
     };
 }

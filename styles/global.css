@@ -32,18 +32,10 @@ button, a {
     color: inherit;
     background-color: transparent;
     text-decoration: none;
-    /* show a hand cursor on hover; some argue that we
-    should keep the default arrow cursor for buttons */
     cursor: pointer;
 }
 
 main {
-    padding: 5rem 0;
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
     color: #CEF2ED;
 }
 

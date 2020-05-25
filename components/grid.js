@@ -7,19 +7,18 @@ import { fab, faGithub } from '@fortawesome/free-brands-svg-icons'
 
 import styles from '../styles/grid-utils.module.css'
 
-library.add(faChevronDown, faEnvelope, faGithub, fab, faInfoCircle)
+library.add(faChevronDown, faEnvelope, faGithub, fab)
 
 export default class Grid extends Component {
     constructor(props) {
         super(props);
         this.props = props
         this.handleClick = props.handleClick
-        this.nextPageMap = {
-            landing: "recentWork",
-            recentWork: "links",
-            links: "contact"
-        }
         this.elementsMap = {
+            contact:
+                <a className={styles.iconLinks} href="mailto:jjge732@gmail.com">
+                    <FontAwesomeIcon icon={faEnvelope}color='#CEF2ED' size="3x"></FontAwesomeIcon>
+                </a>,
             links:
                 <a className={styles.iconLinks} href="https://github.com/jjge732">
                     <FontAwesomeIcon icon={faGithub}color='#CEF2ED' size="4x"></FontAwesomeIcon>
@@ -33,13 +32,6 @@ export default class Grid extends Component {
                 <div className={styles.grid}>
                     {this.elementsMap[this.props.type]}
                 </div>
-                {
-                    this.nextPageMap[this.props.type] ? 
-                        <a className={styles.arrowIcon} onClick={this.handleClick.bind(this, this.nextPageMap[this.props.type], false)}>
-                            <FontAwesomeIcon icon={faChevronDown}></FontAwesomeIcon>
-                        </a>
-                    : null
-                }
             </>
         )
     }
