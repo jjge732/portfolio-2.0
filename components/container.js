@@ -19,6 +19,16 @@ export default class Container extends Component {
         }
     }
 
+    componentDidMount = () => {
+        setTimeout(() => {
+            if (!this.props.router.query.endpoint)
+                this.props.router.push(`/?endpoint=landing`);
+        }, 300);
+        
+    }
+
+
+
     switchContainer = (name, isBack=false) => {
         setTimeout(() => {
             this.setState({ isBack: isBack, isTransitioning: false });
@@ -32,17 +42,17 @@ export default class Container extends Component {
     }
 
     render() {
-        let type = this.props.router.query.endpoint || "landing";
+        let type = this.props.router.query.endpoint;
         let isBack = this.state.isBack;
         let initialLoad = this.state.initialLoad;
         return(
             <main className={cn({
                 [styles.container]: true,
+                [styles.initialLoad]: initialLoad,
+                [styles.reverseTransitionIn]: !initialLoad && isBack,
+                [styles.reverseTransitionOut]: this.state.isTransitioning && isBack,
                 [styles.transitioningIn]: !initialLoad && !isBack,
                 [styles.transitioningOut]: this.state.isTransitioning && !isBack,
-                [styles.reverseTransitionIn]: !initialLoad && isBack,
-                [styles.reverseTransitionOut]: this.state.isTransitioning && isBack
-
             })}>
                 <BackArrow type={type} handleClick={this.switchContainer}/>
                 <Heading type={type}/>

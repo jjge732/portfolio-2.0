@@ -9,6 +9,10 @@
     height: 100vh;
 }
 
+.initialLoad {
+    animation: fadeIn 2s;
+}
+
 .transitioningIn {
     animation: moveIn 1s;
 }
@@ -23,6 +27,11 @@
 
 .reverseTransitionOut {
     animation: reverseMoveOut 1s;
+}
+
+@keyframes fadeIn {
+    from {opacity: 0;}
+    to {opacity: 1;}
 }
 
 @keyframes moveIn {
