@@ -16,7 +16,10 @@ export default class Grid extends Component {
         this.handleClick = props.handleClick
         this.elementsMap = {
             contact:
-                <a className={styles.iconLinks} href="mailto:jjge732@gmail.com">
+                <a 
+                    className={styles.iconLinks} 
+                    href="mailto:jjge732@gmail.com?subject=Portfolio Reference&body=Hey John,%0d%0a%0d%0aI saw your portfolio and wanted to reach out!" 
+                    >
                     <FontAwesomeIcon icon={faEnvelope}color='#CEF2ED' size="3x"></FontAwesomeIcon>
                 </a>,
             links:
