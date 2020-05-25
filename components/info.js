@@ -1,7 +1,13 @@
 import { Component } from "react"
+import PropTypes from 'prop-types'
 
 import styles from '../styles/info-utils.module.css'
 
+/**
+ * Represents the info section of the "page"
+ * 
+ * @component
+ */
 export default class Info extends Component {
     constructor(props) {
         super(props);
@@ -21,9 +27,19 @@ export default class Info extends Component {
         }
     }
 
+    static propTypes = {
+        /** The shorthand name for the content that user is viewing (the "page" the viewer is on) */
+        endpoint: PropTypes.string
+    }
+
+    /**
+     * Renders the "page" info
+     * 
+     * @returns The HTML for the info
+     */
     render() {
         return <>
-            {this.elementsMap[this.props.type]}
+            {this.elementsMap[this.props.endpoint]}
         </>
     }
 }

@@ -1,12 +1,17 @@
 import { Component } from 'react'
+import PropTypes from 'prop-types'
 
 import styles from '../styles/heading-utils.module.css'
 
+/**
+ * Represents the heading content
+ * 
+ * @component
+ */
 export default class Heading extends Component {
     constructor (props) {
         super(props);
         this.props = props
-        this.state = {type: props.type}
         this.textMap = {
             contact: 'Thanks for visiting!',
             landing: 'Welcome',
@@ -15,10 +20,20 @@ export default class Heading extends Component {
         }
     }
 
+    static propTypes = {
+        /** The shorthand name for the content that user is viewing (the "page" the viewer is on) */
+        endpoint: PropTypes.string
+    }
+
+    /**
+     * Renders heading content
+     * 
+     * @returns The HTML for the heading
+     */
     render() {
         return (
             <h1 className={styles.heading}>
-                {this.textMap[this.props.type]}
+                {this.textMap[this.props.endpoint]}
             </h1>
         )
     }

@@ -1,14 +1,20 @@
 import { Component } from "react"
+import PropTypes from 'prop-types'
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { library } from '@fortawesome/fontawesome-svg-core'
-import { faChevronDown, faEnvelope, faInfoCircle } from '@fortawesome/free-solid-svg-icons'
+import {faEnvelope } from '@fortawesome/free-solid-svg-icons'
 import { fab, faGithub } from '@fortawesome/free-brands-svg-icons'
 
 import styles from '../styles/grid-utils.module.css'
 
-library.add(faChevronDown, faEnvelope, faGithub, fab)
+library.add(faEnvelope, faGithub, fab)
 
+/**
+ * Represents a grid of items to display to the user.
+ * 
+ * @component
+ */
 export default class Grid extends Component {
     constructor(props) {
         super(props);
@@ -29,11 +35,21 @@ export default class Grid extends Component {
         }
     }
 
+    static propTypes = {
+        /** The shorthand name for the content that user is viewing (the "page" the viewer is on) */
+        endpoint: PropTypes.string
+    }
+
+    /**
+     * Renders the content of the grid for the given "page"
+     * 
+     * @returns The HTML for the grid
+     */
     render() {
         return (
             <>
                 <div className={styles.grid}>
-                    {this.elementsMap[this.props.type]}
+                    {this.elementsMap[this.props.endpoint]}
                 </div>
             </>
         )

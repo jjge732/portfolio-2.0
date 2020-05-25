@@ -4,6 +4,7 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
+    "docs": "jsdoc -c jsdoc.conf.json",
     "build": "next build",
     "start": "next start"
   },
@@ -21,5 +22,9 @@
     "saas": "^1.0.0",
     "serverless": "^1.71.3",
     "serverless-nextjs-plugin": "^2.5.0-alpha.0"
+  },
+  "devDependencies": {
+    "better-docs": "^2.0.1",
+    "jsdoc": "^3.6.4"
   }
 }
