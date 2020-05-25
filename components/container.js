@@ -2,6 +2,7 @@ import { Component } from 'react'
 
 import cn from 'classnames'
 
+import BackArrow from '../components/backArrow'
 import Grid from '../components/grid'
 import Heading from '../components/heading'
 import Info from '../components/info'
@@ -12,27 +13,38 @@ export default class Container extends Component {
         super(props);
         this.props = props;
         this.state = {
-            isTransitioning: false,
+            initialLoad: true,
+            isTransitioning: false
         }
     }
 
-    switchContainer = name => {
+    switchContainer = (name, isBack=false) => {
         setTimeout(() => {
-            this.setState({ isTransitioning: false });
+            this.setState({ isBack: isBack, isTransitioning: false });
             this.props.router.push(`/?endpoint=${name}`);
         }, 800);
-        this.setState({isTransitioning: true})
+        this.setState({
+            initialLoad: false,
+            isBack: isBack,
+            isTransitioning: true
+        })
     }
 
     render() {
-        let type = this.props.router.query.endpoint || "landing"
+        let type = this.props.router.query.endpoint || "landing";
+        let isBack = this.state.isBack;
+        let initialLoad = this.state.initialLoad;
         return(
             <div className={cn({
                 [styles.container]: true,
-                [styles.transitioningIn]: !type.includes('landing'),
-                [styles.transitioningOut]: this.state.isTransitioning,
+                [styles.transitioningIn]: !initialLoad && !isBack,
+                [styles.transitioningOut]: this.state.isTransitioning && !isBack,
+                [styles.reverseTransitionIn]: !initialLoad && isBack,
+                [styles.reverseTransitionOut]: this.state.isTransitioning && isBack
+
             })}>
                 <main className="content">
+                    <BackArrow type={type} handleClick={this.switchContainer}/>
                     <Heading type={type}/>
                     <Info type={type}/>
                     <Grid type={type} handleClick={this.switchContainer}/>

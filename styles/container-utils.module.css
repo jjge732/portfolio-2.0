@@ -17,6 +17,14 @@
     animation: moveOut 1s;
 }
 
+.reverseTransitionIn {
+    animation: reverseMoveIn 1s;
+}
+
+.reverseTransitionOut {
+    animation: reverseMoveOut 1s;
+}
+
 @keyframes moveIn {
     from {bottom: -100vh;}
     to {bottom: 0;}
@@ -25,4 +33,14 @@
 @keyframes moveOut {
     from {top: 0vh;}
     to {top: -100vh;}
+}
+
+@keyframes reverseMoveIn {
+    from {bottom: 100vh;}
+    to {bottom: 0;}
+}
+
+@keyframes reverseMoveOut {
+    from {top: 0;}
+    to {top: 100vh;}
 }
