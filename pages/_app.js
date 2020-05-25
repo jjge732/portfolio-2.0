@@ -1,4 +1,3 @@
-import Container from '../components/container'
 import Head from "../components/head"
 import "../styles/global.css"
 

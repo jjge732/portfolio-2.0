@@ -1,5 +1,10 @@
+import { useRouter } from 'next/router'
+
 import Container from '../components/container'
 
 export default function Home() {
-  return <Container type="landing"/>
+  const router = useRouter();
+  const {endpoint} = router.query
+  console.log(endpoint)
+  return <Container router={router}/>
 }
