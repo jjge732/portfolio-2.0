@@ -5,7 +5,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { library } from '@fortawesome/fontawesome-svg-core'
 import { faChevronDown, faEnvelope } from '@fortawesome/free-solid-svg-icons'
 
-import styles from '../styles/grid-utils.module.css'
+import styles from '../styles/arrow-utils.module.css'
 
 library.add(faChevronDown, faEnvelope)
 
@@ -32,14 +32,14 @@ export default class backArrow extends Component {
     /**
      * Renders back arrow
      * 
-     * @returns The HTML for the back arrow
+     * @returns The back arrow component
      */
     render() {
         return (
             <>
                 {
-                    this.nextPageMap[this.props.endpoint] ? 
-                        <a className={styles.arrowIcon} onClick={this.props.handleClick.bind(this, this.nextPageMap[this.props.endpoint], true)}>
+                    this.props.pageMap[this.props.endpoint] ? 
+                        <a className={styles.arrow} onClick={this.props.handleClick.bind(this, true)}>
                             <FontAwesomeIcon icon={faChevronDown} rotation={180}></FontAwesomeIcon>
                         </a>
                     : null

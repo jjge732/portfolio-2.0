@@ -6,7 +6,7 @@ import { library } from '@fortawesome/fontawesome-svg-core'
 import { faChevronDown, faEnvelope, faInfoCircle } from '@fortawesome/free-solid-svg-icons'
 import { fab, faGithub } from '@fortawesome/free-brands-svg-icons'
 
-import styles from '../styles/grid-utils.module.css'
+import styles from '../styles/arrow-utils.module.css'
 
 library.add(faChevronDown, faEnvelope, faGithub, fab, faInfoCircle)
 
@@ -20,11 +20,6 @@ export default class ForwardArrow extends Component {
         super(props);
         this.props = props
         this.handleClick = props.handleClick
-        this.nextPageMap = {
-            landing: "recentWork",
-            recentWork: "links",
-            links: "contact"
-        }
     }
 
     static propTypes = {
@@ -42,14 +37,14 @@ export default class ForwardArrow extends Component {
     /**
      * Renders the forward arrow
      * 
-     * @returns The HTML for the forward arrow
+     * @returns The forward arrow component
      */
     render() {
         return (
             <>
                 {
-                    this.nextPageMap[this.props.endpoint] ? 
-                        <a className={styles.arrowIcon} onClick={this.handleClick.bind(this, this.nextPageMap[this.props.endpoint], false)}>
+                    this.props.pageMap[this.props.endpoint] ? 
+                        <a className={styles.arrow} onClick={this.handleClick.bind(this, false)}>
                             <FontAwesomeIcon icon={faChevronDown}></FontAwesomeIcon>
                         </a>
                     : null

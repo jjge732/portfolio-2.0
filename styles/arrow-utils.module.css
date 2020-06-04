@@ -1,0 +1,6 @@
+.arrow {
+    color: inherit;
+    opacity: .9;
+    font-size: 4.5rem;
+    text-shadow: 2px 2px 2px #69787A, -2px -2px 2px #69787A, -2px 2px 2px #69787A, 2px -2px 2px #69787A;
+}

@@ -1,6 +1,5 @@
 import { Component } from 'react'
 import PropTypes from 'prop-types'
-
 import cn from 'classnames'
 
 import BackArrow from '../components/backArrow'
@@ -23,6 +22,18 @@ export default class Container extends Component {
             initialLoad: true,
             isTransitioning: false
         }
+        this.pageMap = [
+            {
+                landing: "recentWork",
+                recentWork: "links",
+                links: "contact"
+            },
+            {
+                recentWork: "landing",
+                links: "recentWork",
+                contact: "links"
+            }
+        ]
     }
 
     static propTypes = {
@@ -35,10 +46,8 @@ export default class Container extends Component {
     }
 
     /** 
-     * Handles arrow clicks to allow for navigation on the page
-     * 
-     * @param {string} endpointName The "page" the user will reach by clicking this arrow
-     * @param {string} isBack Whether this arrow sends the user to the next or previous content
+     * Default function that is called on mount
+     *      
      */
     componentDidMount = () => {
         /* 
@@ -58,10 +67,11 @@ export default class Container extends Component {
      * @param {string} endpointName The "page" the user will reach by clicking this arrow
      * @param {string} isBack Whether this arrow sends the user to the next or previous content
      */
-    switchContainer = (endpointName, isBack=false) => {
+    switchContainer = (isBack=false) => {
         setTimeout(() => {
+            const router = this.props.router
             this.setState({ isBack: isBack, isTransitioning: false });
-            this.props.router.push(`/?endpoint=${endpointName}`);
+            router.push(`/?endpoint=${this.pageMap[isBack ? 1 : 0][router.query.endpoint]}`);
         }, 800);
         this.setState({
             initialLoad: false,
@@ -73,7 +83,7 @@ export default class Container extends Component {
     /**
      * Renders all the "page" content
      * 
-     * @returns The HTML for the app
+     * @returns The components for the app
      */
     render() {
         const { endpoint } = this.props.router.query;
@@ -88,11 +98,11 @@ export default class Container extends Component {
                 [styles.transitioningIn]: !initialLoad && !isBack,
                 [styles.transitioningOut]: isTransitioning && !isBack,
             })}>
-                <BackArrow endpoint={endpoint} handleClick={this.switchContainer}/>
+                <BackArrow endpoint={endpoint} handleClick={this.switchContainer} pageMap={this.pageMap[1]}/>
                 <Heading endpoint={endpoint}/>
                 <Info endpoint={endpoint}/>
                 <Grid endpoint={endpoint} handleClick={this.switchContainer}/>
-                <ForwardArrow endpoint={endpoint} handleClick={this.switchContainer}/>
+                <ForwardArrow endpoint={endpoint} handleClick={this.switchContainer} pageMap={this.pageMap[0]}/>
             </main>
         )
     };
