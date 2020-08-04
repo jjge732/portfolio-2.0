@@ -1,6 +1,6 @@
-import { Component } from 'react'
-import PropTypes from 'prop-types'
 import cn from 'classnames'
+import PropTypes from 'prop-types'
+import { Component } from 'react'
 
 import BackArrow from '../components/backArrow'
 import Grid from '../components/grid'
@@ -18,9 +18,12 @@ export default class Container extends Component {
     constructor(props) {
         super(props);
         this.props = props;
+        let {section} = props
+        let nextSection = this.getNextSection(section)
+        console.log(nextSection)
         this.state = {
             initialLoad: true,
-            isTransitioning: false
+            isTransitioning: false,
         }
         this.pageMap = [
             {
@@ -36,48 +39,17 @@ export default class Container extends Component {
         ]
     }
 
+    getPreviousSection = section => `section${--section}`
+
+    getNextSection = section => `section${++section}`
+
     static propTypes = {
         /** 
          * The router component that is used to "shallowly" change the url
          *      Allows for the user to return to the last viewed content ("page")
          *      when the browser back button is clicked
         */
-        router: PropTypes.object.isRequired
-    }
-
-    /** 
-     * Default function that is called on mount
-     *      
-     */
-    componentDidMount = () => {
-        /* 
-        * Sets the default query parameter to landing so that this parameter can be used to load all "pages."
-        *       Allows for better rendering of content when a user uses the browser back button.
-        */
-        setTimeout(() => {
-            if (!this.props.router.query.endpoint)
-                this.props.router.push(`/?endpoint=landing`);
-        }, 300);
-        
-    }
-
-    /** 
-     * Handles the arrow click and returns the user to the previous or next "page"
-     * 
-     * @param {string} endpointName The "page" the user will reach by clicking this arrow
-     * @param {string} isBack Whether this arrow sends the user to the next or previous content
-     */
-    switchContainer = (isBack=false) => {
-        setTimeout(() => {
-            const router = this.props.router
-            this.setState({ isBack: isBack, isTransitioning: false });
-            router.push(`/?endpoint=${this.pageMap[isBack ? 1 : 0][router.query.endpoint]}`);
-        }, 800);
-        this.setState({
-            initialLoad: false,
-            isBack: isBack,
-            isTransitioning: true
-        })
+       endpoint: PropTypes.string.isRequired
     }
 
     /**
@@ -86,23 +58,21 @@ export default class Container extends Component {
      * @returns The components for the app
      */
     render() {
-        const { endpoint } = this.props.router.query;
-        const { isBack, initialLoad, isTransitioning } = this.state;
+        const { endpoint, section } = this.props;
         return(
             // Leverages the classnames library to allow for simple CSS transitions between pages.
-            <main className={cn({
-                [styles.container]: true,
-                [styles.initialLoad]: initialLoad,
-                [styles.reverseTransitionIn]: !initialLoad && isBack,
-                [styles.reverseTransitionOut]: isTransitioning && isBack,
-                [styles.transitioningIn]: !initialLoad && !isBack,
-                [styles.transitioningOut]: isTransitioning && !isBack,
-            })}>
-                <BackArrow endpoint={endpoint} handleClick={this.switchContainer} pageMap={this.pageMap[1]}/>
+            <main 
+                className={cn({
+                    [styles.container]: true,
+                    [styles.initialLoad]: this.state.initialLoad,
+                })}
+                id={`section${section}`}
+            >
+                <BackArrow endpoint={endpoint} previousSection={this.getPreviousSection(section)} pageMap={this.pageMap[1]}/>
                 <Heading endpoint={endpoint}/>
                 <Info endpoint={endpoint}/>
-                <Grid endpoint={endpoint} handleClick={this.switchContainer}/>
-                <ForwardArrow endpoint={endpoint} handleClick={this.switchContainer} pageMap={this.pageMap[0]}/>
+                <Grid endpoint={endpoint}/>
+                <ForwardArrow endpoint={endpoint} nextSection={this.getNextSection(section)} pageMap={this.pageMap[0]}/>
             </main>
         )
     };

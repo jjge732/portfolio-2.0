@@ -1,5 +1,7 @@
-import { Component } from "react"
 import PropTypes from 'prop-types'
+import { Component } from "react"
+import { Link, animateScroll as scroll } from 'react-scroll';
+
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { library } from '@fortawesome/fontawesome-svg-core'
@@ -35,13 +37,21 @@ export default class backArrow extends Component {
      * @returns The back arrow component
      */
     render() {
+        let {endpoint, previousSection} = this.props
         return (
             <>
                 {
-                    this.props.pageMap[this.props.endpoint] ? 
-                        <a className={styles.arrow} onClick={this.props.handleClick.bind(this, true)}>
+                    this.props.pageMap[endpoint] ? 
+                        <Link
+                            className={styles.arrow}
+                            activeClass="active"
+                            to={previousSection}
+                            spy={true}
+                            smooth={true}
+                            duration={750}
+                        >
                             <FontAwesomeIcon icon={faChevronDown} rotation={180}></FontAwesomeIcon>
-                        </a>
+                        </Link>
                     : null
                 }
             </>

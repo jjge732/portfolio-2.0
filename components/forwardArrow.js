@@ -1,5 +1,6 @@
-import { Component } from "react"
 import PropTypes from 'prop-types'
+import { Component } from "react"
+import { Link, animateScroll as scroll } from "react-scroll";
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { library } from '@fortawesome/fontawesome-svg-core'
@@ -40,13 +41,21 @@ export default class ForwardArrow extends Component {
      * @returns The forward arrow component
      */
     render() {
+        let {endpoint, nextSection, pageMap} = this.props
         return (
             <>
                 {
-                    this.props.pageMap[this.props.endpoint] ? 
-                        <a className={styles.arrow} onClick={this.handleClick.bind(this, false)}>
-                            <FontAwesomeIcon icon={faChevronDown}></FontAwesomeIcon>
-                        </a>
+                    pageMap[endpoint] ? 
+                        <Link 
+                            className={styles.arrow}
+                            activeClass="active"
+                            to={nextSection}
+                            spy={true}
+                            smooth={true}
+                            duration={750}
+                        >
+                                <FontAwesomeIcon icon={faChevronDown}></FontAwesomeIcon>
+                        </Link>
                     : null
                 }
             </>
