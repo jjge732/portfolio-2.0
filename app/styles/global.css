@@ -1,4 +1,8 @@
 
+* {
+    box-sizing: border-box;
+}
+
 html,
 body {
     padding: 0;
@@ -9,16 +13,13 @@ body {
     width: 100vw;
     max-width: 100vw;
 }
-* {
-    box-sizing: border-box;
-}
 
 body {
     /* Photo by Azim Islam from Pexels
     https://www.pexels.com/photo/bokeh-of-lights-photography-1210276/ */
     background-image: url("../public/background-image.jpg");
     background-position: center;
-    background-size: cover;
+    background-size: 100vw;
     text-align: center;
     background-attachment: fixed;
     animation: fadeIn 3s;
