@@ -19,7 +19,7 @@ export default class Info extends Component {
                         jjge732@gmail.com
                     </a> to get in touch!
                 </div>,
-            links: <div className={styles.info}>This site will be updated regularly, come back to see more of my work or check out my <a href="https://github.com/jjge732/fractal-machine">github</a>!</div>,
+            links: <div className={styles.info}>Checkout my resume or <a href="https://github.com/jjge732/fractal-machine">github</a>!</div>,
             recentWork:
                 <a className={styles.info} href="https://github.com/jjge732/fractal-machine">
                     <img src="/fractal_image.png" width="300px" alt="link to fractal machine github"/>
@@ -28,8 +28,8 @@ export default class Info extends Component {
     }
 
     static propTypes = {
-        /** The shorthand name for the content that user is viewing (the "page" the viewer is on) */
-        endpoint: PropTypes.string
+        /** The shorthand name for the content that user is viewing */
+        sectionName: PropTypes.string.isRequired
     }
 
     /**
@@ -39,7 +39,7 @@ export default class Info extends Component {
      */
     render() {
         return <>
-            {this.elementsMap[this.props.endpoint]}
+            {this.elementsMap[this.props.sectionName]}
         </>
     }
 }

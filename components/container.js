@@ -10,7 +10,7 @@ import Info from '../components/info'
 import styles from '../styles/container-utils.module.css'
   
 /**
- * Represents all of the content displayed to the user.
+ * Represents all of the content in a given section that is displayed to the user.
  * 
  * @component
  */
@@ -18,38 +18,17 @@ export default class Container extends Component {
     constructor(props) {
         super(props);
         this.props = props;
-        let {section} = props
-        let nextSection = this.getNextSection(section)
-        console.log(nextSection)
         this.state = {
             initialLoad: true,
             isTransitioning: false,
         }
-        this.pageMap = [
-            {
-                landing: "recentWork",
-                recentWork: "links",
-                links: "contact"
-            },
-            {
-                recentWork: "landing",
-                links: "recentWork",
-                contact: "links"
-            }
-        ]
     }
 
-    getPreviousSection = section => `section${--section}`
-
-    getNextSection = section => `section${++section}`
-
     static propTypes = {
-        /** 
-         * The router component that is used to "shallowly" change the url
-         *      Allows for the user to return to the last viewed content ("page")
-         *      when the browser back button is clicked
-        */
-       endpoint: PropTypes.string.isRequired
+        /** The name of the given contained section */
+       sectionName: PropTypes.string.isRequired,
+        /** The index of the given contained section */
+       sectionIndex: PropTypes.number.isRequired
     }
 
     /**
@@ -58,21 +37,21 @@ export default class Container extends Component {
      * @returns The components for the app
      */
     render() {
-        const { endpoint, section } = this.props;
+        const { sectionName, sectionIndex } = this.props;
         return(
-            // Leverages the classnames library to allow for simple CSS transitions between pages.
+            // Leverages the classnames library to add names of classes to the container based on state 
             <main 
                 className={cn({
                     [styles.container]: true,
                     [styles.initialLoad]: this.state.initialLoad,
                 })}
-                id={`section${section}`}
+                id={`section${sectionIndex}`}
             >
-                <BackArrow endpoint={endpoint} previousSection={this.getPreviousSection(section)} pageMap={this.pageMap[1]}/>
-                <Heading endpoint={endpoint}/>
-                <Info endpoint={endpoint}/>
-                <Grid endpoint={endpoint}/>
-                <ForwardArrow endpoint={endpoint} nextSection={this.getNextSection(section)} pageMap={this.pageMap[0]}/>
+                <BackArrow sectionIndex={sectionIndex}/>
+                <Heading sectionName={sectionName}/>
+                <Info sectionName={sectionName}/>
+                <Grid sectionName={sectionName}/>
+                <ForwardArrow sectionIndex={sectionIndex}/>
             </main>
         )
     };

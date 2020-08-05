@@ -1,6 +1,6 @@
 import PropTypes from 'prop-types'
 import { Component } from "react"
-import { Link, animateScroll as scroll } from 'react-scroll';
+import { Link } from 'react-scroll';
 
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
@@ -27,9 +27,11 @@ export default class backArrow extends Component {
         }
     }
     static propTypes = {
-        /** The shorthand name for the content that user is viewing (the "page" the viewer is on) */
-        endpoint: PropTypes.string
+        /** The index of the current section */
+        sectionIndex: PropTypes.number.isRequired
     }
+
+    getPreviousSection = sectionIndex => `section${--sectionIndex}`
 
     /**
      * Renders back arrow
@@ -37,15 +39,15 @@ export default class backArrow extends Component {
      * @returns The back arrow component
      */
     render() {
-        let {endpoint, previousSection} = this.props
+        let { sectionIndex } = this.props
         return (
             <>
                 {
-                    this.props.pageMap[endpoint] ? 
+                    sectionIndex > 1 && sectionIndex < 5 ? 
                         <Link
                             className={styles.arrow}
                             activeClass="active"
-                            to={previousSection}
+                            to={this.getPreviousSection(sectionIndex)}
                             spy={true}
                             smooth={true}
                             duration={750}

@@ -15,14 +15,14 @@ export default class Heading extends Component {
         this.textMap = {
             contact: 'Thanks for visiting!',
             landing: 'Welcome',
-            links: 'More content on the way!',
+            links: 'Want to see more?',
             recentWork: 'What I\'ve been up to lately:'
         }
     }
 
     static propTypes = {
-        /** The shorthand name for the content that user is viewing (the "page" the viewer is on) */
-        endpoint: PropTypes.string
+        /** The shorthand name for the content that user is viewing */
+        sectionName: PropTypes.string.isRequired
     }
 
     /**
@@ -33,7 +33,7 @@ export default class Heading extends Component {
     render() {
         return (
             <h1 className={styles.heading}>
-                {this.textMap[this.props.endpoint]}
+                {this.textMap[this.props.sectionName]}
             </h1>
         )
     }

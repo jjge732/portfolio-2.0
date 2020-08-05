@@ -1,6 +1,6 @@
 import PropTypes from 'prop-types'
 import { Component } from "react"
-import { Link, animateScroll as scroll } from "react-scroll";
+import { Link } from "react-scroll";
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { library } from '@fortawesome/fontawesome-svg-core'
@@ -20,20 +20,14 @@ export default class ForwardArrow extends Component {
     constructor(props) {
         super(props);
         this.props = props
-        this.handleClick = props.handleClick
     }
 
     static propTypes = {
-        /** The shorthand name for the content that user is viewing (the "page" the viewer is on) */
-        endpoint: PropTypes.string,
-        /** 
-         * A method that handles the arrow click and returns the user to the previous  or next "page"
-         * 
-         * @param {string} endpointName The "page" the user will reach by clicking this arrow
-         * @param {string} isBack Whether this arrow sends the user to the next or previous content
-         */
-        handleClick: PropTypes.PropTypes.func.isRequired
+        /** The index of the section associated with this arrow */
+        sectionIndex: PropTypes.number.isRequired
     }
+
+    getNextSection = sectionIndex => `section${++sectionIndex}`
 
     /**
      * Renders the forward arrow
@@ -41,20 +35,20 @@ export default class ForwardArrow extends Component {
      * @returns The forward arrow component
      */
     render() {
-        let {endpoint, nextSection, pageMap} = this.props
+        let { sectionIndex } = this.props
         return (
             <>
                 {
-                    pageMap[endpoint] ? 
+                    sectionIndex > 0 && sectionIndex < 4 ? 
                         <Link 
                             className={styles.arrow}
                             activeClass="active"
-                            to={nextSection}
+                            to={this.getNextSection(sectionIndex)}
                             spy={true}
                             smooth={true}
                             duration={750}
                         >
-                                <FontAwesomeIcon icon={faChevronDown}></FontAwesomeIcon>
+                            <FontAwesomeIcon icon={faChevronDown}></FontAwesomeIcon>
                         </Link>
                     : null
                 }

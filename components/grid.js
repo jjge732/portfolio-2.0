@@ -3,12 +3,12 @@ import PropTypes from 'prop-types'
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { library } from '@fortawesome/fontawesome-svg-core'
-import {faEnvelope } from '@fortawesome/free-solid-svg-icons'
+import { faEnvelope, faFile } from '@fortawesome/free-solid-svg-icons'
 import { fab, faGithub } from '@fortawesome/free-brands-svg-icons'
 
 import styles from '../styles/grid-utils.module.css'
 
-library.add(faEnvelope, faGithub, fab)
+library.add(faEnvelope, faFile, faGithub, fab)
 
 /**
  * Represents a grid of items to display to the user.
@@ -19,25 +19,33 @@ export default class Grid extends Component {
     constructor(props) {
         super(props);
         this.props = props
-        this.handleClick = props.handleClick
         this.elementsMap = {
             contact:
                 <a 
                     className={styles.iconLinks} 
                     href="mailto:jjge732@gmail.com?subject=Portfolio Reference&body=Hey John,%0d%0a%0d%0aI saw your portfolio and wanted to reach out!" 
-                    >
-                    <FontAwesomeIcon icon={faEnvelope}color='#CEF2ED' size="3x"></FontAwesomeIcon>
+                >
+                    <FontAwesomeIcon icon={faEnvelope} color='#CEF2ED' size="3x"></FontAwesomeIcon>
                 </a>,
             links:
-                <a className={styles.iconLinks} href="https://github.com/jjge732">
-                    <FontAwesomeIcon icon={faGithub}color='#CEF2ED' size="4x"></FontAwesomeIcon>
-                </a>
+                <>
+                    <a className={styles.iconLinks} href="https://github.com/jjge732">
+                        <FontAwesomeIcon icon={faGithub}color='#CEF2ED' size="4x"></FontAwesomeIcon>
+                    </a>
+                    <a 
+                        className={styles.iconLinks} 
+                        href="resume.pdf"
+                        download
+                    >
+                        <FontAwesomeIcon icon={faFile} color='#CEF2ED' size="3x"></FontAwesomeIcon>
+                    </a>
+                </>
         }
     }
 
     static propTypes = {
-        /** The shorthand name for the content that user is viewing (the "page" the viewer is on) */
-        endpoint: PropTypes.string
+        /** The shorthand name for the content that user is viewing */
+        sectionName: PropTypes.string.isRequired
     }
 
     /**
@@ -49,7 +57,7 @@ export default class Grid extends Component {
         return (
             <>
                 <div className={styles.grid}>
-                    {this.elementsMap[this.props.endpoint]}
+                    {this.elementsMap[this.props.sectionName]}
                 </div>
             </>
         )
