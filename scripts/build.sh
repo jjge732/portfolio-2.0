@@ -7,6 +7,6 @@ curl --silent --location https://dl.yarnpkg.com/rpm/yarn.repo | sudo tee /etc/yu
 sudo rpm --import https://dl.yarnpkg.com/rpm/pubkey.gpg
 sudo yum -y install yarn
 sudo yarn global add pm2
-cd apps/ui
+cd app
 yarn install
 yarn build
