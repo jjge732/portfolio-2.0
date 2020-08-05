@@ -1,2 +1,4 @@
-sudo yarn global add pm2
+#! /bin/bash
+
+cd app
 yarn start
