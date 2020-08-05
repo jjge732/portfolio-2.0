@@ -12,17 +12,16 @@ body {
     sans-serif;
     width: 100vw;
     max-width: 100vw;
+    animation: fadeIn 3s;
 }
 
 body {
     /* Photo by Azim Islam from Pexels
     https://www.pexels.com/photo/bokeh-of-lights-photography-1210276/ */
     background-image: url("../public/background-image.jpg");
-    background-position: center;
-    background-size: 100vw;
+    background-size: cover;
     text-align: center;
     background-attachment: fixed;
-    animation: fadeIn 3s;
 }
 
 i.fas {
