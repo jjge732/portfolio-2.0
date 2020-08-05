@@ -41,10 +41,7 @@ export default class Container extends Component {
         return(
             // Leverages the classnames library to add names of classes to the container based on state 
             <main 
-                className={cn({
-                    [styles.container]: true,
-                    [styles.initialLoad]: this.state.initialLoad,
-                })}
+                className={styles.container}
                 id={`section${sectionIndex}`}
             >
                 <BackArrow sectionIndex={sectionIndex}/>

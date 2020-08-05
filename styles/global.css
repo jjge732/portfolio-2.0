@@ -21,6 +21,7 @@ body {
     background-size: cover;
     text-align: center;
     background-attachment: fixed;
+    animation: fadeIn 3s;
 }
 
 i.fas {
@@ -40,6 +41,12 @@ button, a {
 main {
     color: #CEF2ED;
 }
+
+@keyframes fadeIn {
+    from {opacity: 0;}
+    to {opacity: 1;}
+}
+
 
 @media (max-width: 600px) {
     .grid {
