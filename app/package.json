@@ -3,9 +3,10 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
+    "build": "next build && next export",
     "dev": "next dev",
     "docs": "jsdoc -c jsdoc.conf.json",
-    "build": "next build",
+    "deploy": "aws s3 sync out/ s3://jjgeastwood.com --acl public-read",
     "start": "next start"
   },
   "dependencies": {
