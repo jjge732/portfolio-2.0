@@ -6,7 +6,7 @@
     "build": "next build && next export",
     "dev": "next dev",
     "docs": "jsdoc -c jsdoc.conf.json",
-    "deploy": "aws s3 sync out/ s3://jjgeastwood.com --acl public-read",
+    "deploy": "yarn build && aws s3 sync out/ s3://jjgeastwood.com --acl public-read",
     "start": "next start"
   },
   "dependencies": {
