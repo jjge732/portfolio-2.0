@@ -16,6 +16,7 @@ export default class Heading extends Component {
             contact: 'Thanks for visiting!',
             landing: 'Welcome',
             links: 'Want to see more?',
+            objective: 'I\'m John Eastwood,',
             recentWork: 'What I\'ve been up to lately:'
         }
     }

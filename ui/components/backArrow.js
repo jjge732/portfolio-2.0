@@ -31,7 +31,7 @@ export default class backArrow extends Component {
         sectionIndex: PropTypes.number.isRequired
     }
 
-    getPreviousSection = sectionIndex => `section${--sectionIndex}`
+    getPreviousSection = sectionIndex => `section${--sectionIndex}`;
 
     /**
      * Renders back arrow
@@ -43,7 +43,7 @@ export default class backArrow extends Component {
         return (
             <>
                 {
-                    sectionIndex > 1 && sectionIndex < 5 ? 
+                    sectionIndex > 0 && sectionIndex < 5 ? 
                         <Link
                             className={styles.arrow}
                             activeClass="active"

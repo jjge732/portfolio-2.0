@@ -39,7 +39,7 @@ export default class ForwardArrow extends Component {
         return (
             <>
                 {
-                    sectionIndex > 0 && sectionIndex < 4 ? 
+                    sectionIndex > -1 && sectionIndex < 4 ? 
                         <Link 
                             className={styles.arrow}
                             activeClass="active"

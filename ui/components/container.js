@@ -2,11 +2,11 @@ import cn from 'classnames'
 import PropTypes from 'prop-types'
 import { Component } from 'react'
 
-import BackArrow from '../components/backArrow'
-import Grid from '../components/grid'
-import ForwardArrow from '../components/forwardArrow'
-import Heading from '../components/heading'
-import Info from '../components/info'
+import BackArrow from './backArrow'
+import Grid from './grid'
+import ForwardArrow from './forwardArrow'
+import Heading from './heading'
+import Info from './info'
 import styles from '../styles/container-utils.module.css'
   
 /**

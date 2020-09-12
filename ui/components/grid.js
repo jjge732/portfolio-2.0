@@ -35,7 +35,7 @@ export default class Grid extends Component {
                     <a 
                         className={styles.iconLinks} 
                         href="resume.pdf"
-                        download
+                        target="_blank"
                     >
                         <FontAwesomeIcon icon={faFile} color='#CEF2ED' size="3x"></FontAwesomeIcon>
                     </a>

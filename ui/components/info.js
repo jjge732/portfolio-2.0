@@ -21,9 +21,13 @@ export default class Info extends Component {
                 </div>,
             links: <div className={styles.info}>Check out my resume or <a href="https://github.com/jjge732/fractal-machine">github</a>!</div>,
             recentWork:
-                <a className={styles.info} href="https://github.com/jjge732/OneStopNews">
-                    <img src="/OneStopNews.png" width="300px" alt="link to OneStopNews github"/>
-                </a>
+                <a className={styles.imageBox} href="https://github.com/jjge732/OneStopNews">
+                    <img src="/OneStopNews.png" alt="link to OneStopNews github"/>
+                </a>,
+            objective:
+                <div className={styles.info}>
+                    a software developer always looking to collablorate with other developers and for full time employment starting in January 2021
+                </div>
         }
     }
 
