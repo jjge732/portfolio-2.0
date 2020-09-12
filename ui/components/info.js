@@ -26,7 +26,7 @@ export default class Info extends Component {
                 </a>,
             objective:
                 <div className={styles.info}>
-                    a software developer always looking to collablorate with other developers and for full time employment starting in January 2021
+                    a software developer seeking full time employment starting in January 2021
                 </div>
         }
     }
