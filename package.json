@@ -1,11 +1,39 @@
 {
   "name": "portfolio-2.0",
-  "version": "1.0.0",
-  "main": "index.js",
-  "repository": "https://github.com/jjge732/portfolio-2.0.git",
-  "author": "John Eastwood <jjge732@gmail.com>",
-  "license": "MIT",
+  "version": "0.1.0",
+  "private": true,
   "scripts": {
-    "deploy": "cd ui && yarn deploy"
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject",
+    "deploy": "yarn build && aws s3 sync build/ s3://jjgeastwood.com --acl public-read"
+  },
+  "dependencies": {
+    "@fortawesome/fontawesome-svg-core": "^1.2.28",
+    "@fortawesome/free-brands-svg-icons": "^5.13.0",
+    "@fortawesome/free-solid-svg-icons": "^5.13.0",
+    "@fortawesome/react-fontawesome": "^0.1.9",
+    "classnames": "^2.2.6",
+    "global": "^4.4.0",
+    "react-scroll": "^1.8.0",
+    "saas": "^1.0.0"
+  },
+  "devDependencies": {
+    "react": "^17.0.1",
+    "react-dom": "^17.0.1",
+    "react-scripts": "4.0.0"
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
   }
 }
