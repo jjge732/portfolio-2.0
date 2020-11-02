@@ -4,3 +4,10 @@
     font-size: 4.5rem;
     text-shadow: 2px 2px 2px #69787A, -2px -2px 2px #69787A, -2px 2px 2px #69787A, 2px -2px 2px #69787A;
 }
+
+.arrow:hover,
+.arrow:focus,
+.arrow:active {
+    color: #69787A;
+    text-shadow: 2px 2px 6px #7A4B63;
+}

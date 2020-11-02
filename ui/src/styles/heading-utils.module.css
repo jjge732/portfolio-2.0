@@ -6,9 +6,8 @@
     line-height: 1.15;
     font-size: 4rem;
     text-align: center;
-    text-shadow: 1px 1px 1px #40140D, -1px -1px 1px #40140D, -1px 1px 1px #40140D, 1px -1px 1px #40140D;
+    text-shadow: 1px 1px 1px #69787A, -1px -1px 1px #69787A, -1px 1px 1px #69787A, 1px -1px 1px #69787A;
 }
-
 
 @media (max-width: 600px) {
     .heading {

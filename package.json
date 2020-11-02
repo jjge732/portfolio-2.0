@@ -1,0 +1,11 @@
+{
+  "name": "portfolio-2.0",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "https://github.com/jjge732/portfolio-2.0.git",
+  "author": "John Eastwood <jjge732@gmail.com>",
+  "license": "MIT",
+  "scripts": {
+    "deploy": "cd ui && yarn deploy"
+  }
+}

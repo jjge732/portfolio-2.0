@@ -18,7 +18,7 @@ body {
 body {
     /* Photo by Azim Islam from Pexels
     https://www.pexels.com/photo/bokeh-of-lights-photography-1210276/ */
-    background-image: url("../public/background-image.jpg");
+    background-image: url("./background-image.jpg");
     background-position: right;
     background-size: cover;
     text-align: center;
